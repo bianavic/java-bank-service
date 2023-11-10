@@ -9,11 +9,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
 @Getter
-@Entity
+@Setter
+@Entity(name = "tb_user")
 public class User {
 
     @Id
