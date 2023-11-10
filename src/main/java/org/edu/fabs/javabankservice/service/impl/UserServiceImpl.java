@@ -16,8 +16,8 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
 
     @Override
-    public Optional<User> findById(Long id) {
-        return Optional.ofNullable(userRepository.findById(id).orElseThrow(NoSuchElementException::new));
+    public User findById(Long id) {
+        return userRepository.findById(id).orElseThrow(NoSuchElementException::new);
     }
 
     @Override
