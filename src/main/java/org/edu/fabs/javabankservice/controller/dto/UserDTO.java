@@ -8,8 +8,7 @@ import static java.util.Collections.emptyList;
 import static java.util.Optional.ofNullable;
 import static java.util.stream.Collectors.toList;
 
-public record UserDTO(Long id,
-                      String name,
+public record UserDTO(String name,
                       AccountDTO account,
                       CardDTO card,
                       List<FeatureDTO> features,
@@ -17,7 +16,6 @@ public record UserDTO(Long id,
 
     public UserDTO(User model) {
         this(
-                model.getId(),
                 model.getName(),
                 ofNullable(model.getAccount()).map(AccountDTO::new).orElse(null),
                 ofNullable(model.getCard()).map(CardDTO::new).orElse(null),
@@ -28,7 +26,6 @@ public record UserDTO(Long id,
 
     public User toModel() {
         User model = new User();
-        model.setId(this.id);
         model.setName(this.name);
         model.setAccount(ofNullable(this.account).map(AccountDTO::toModel).orElse(null));
         model.setCard(ofNullable(this.card).map(CardDTO::toModel).orElse(null));
