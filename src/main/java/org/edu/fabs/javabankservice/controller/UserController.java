@@ -45,9 +45,6 @@ public record UserController(UserService userService) {
     })
     public ResponseEntity<UserDTO> findById(@RequestBody UserDTO userDTO) {
         User userCreated = userService.create(userDTO.toModel());
-    @PostMapping()
-    public ResponseEntity<User> findById(@RequestBody User userToCreate) {
-        User userCreated = userService.create(userToCreate);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}").buildAndExpand(userCreated.getId())
                 .toUri();
