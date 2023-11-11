@@ -24,12 +24,9 @@ public class Account {
 
     private String agency;
 
-    // precisao (precision) de inteiros e decimais (scale)
-    // 9999999999999,99
     @Column(precision = 13, scale = 2)
     private BigDecimal balance;
 
-    // o nome da coluna é para evitar problemas com palavras reservadas
     @Column(name = "addicional_limit", precision = 13, scale = 2)
     private BigDecimal limit;
 

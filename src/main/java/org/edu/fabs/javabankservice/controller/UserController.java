@@ -30,7 +30,6 @@ public class UserController {
     @PostMapping()
     public ResponseEntity<User> findById(@RequestBody User userToCreate) {
         User userCreated = userService.create(userToCreate);
-        // retorna a localizacao do recurso, basicamente retorna a url daquele ID q foi criado
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}").buildAndExpand(userCreated.getId())
                 .toUri();

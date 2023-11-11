@@ -7,7 +7,6 @@ import org.edu.fabs.javabankservice.service.UserService;
 import org.springframework.stereotype.Service;
 
 import java.util.NoSuchElementException;
-import java.util.Optional;
 
 @Service
 @AllArgsConstructor

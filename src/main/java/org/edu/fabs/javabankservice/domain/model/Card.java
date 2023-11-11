@@ -22,8 +22,6 @@ public class Card {
     @Column(unique = true)
     private String number;
 
-    // o nome da coluna é para evitar problemas com palavras reservadas
-    // 9999999999999,99
     @Column(name = "available_limit", precision = 13, scale = 2)
     private BigDecimal limit;
 
