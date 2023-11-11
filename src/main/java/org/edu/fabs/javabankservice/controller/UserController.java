@@ -36,6 +36,7 @@ public record UserController(UserService userService) {
         return ResponseEntity.ok(new UserDTO(user));
     }
 
+
     @PostMapping
     @Operation(summary = "Create a new user", description = "Create a new user and return the created user's data")
     @ApiResponses(value = {
@@ -44,7 +45,9 @@ public record UserController(UserService userService) {
     })
     public ResponseEntity<UserDTO> findById(@RequestBody UserDTO userDTO) {
         User userCreated = userService.create(userDTO.toModel());
-        // retorna a localizacao do recurso, basicamente retorna a url daquele ID q foi criado
+    @PostMapping()
+    public ResponseEntity<User> findById(@RequestBody User userToCreate) {
+        User userCreated = userService.create(userToCreate);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}").buildAndExpand(userCreated.getId())
                 .toUri();

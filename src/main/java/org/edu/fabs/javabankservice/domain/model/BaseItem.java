@@ -8,9 +8,6 @@ import jakarta.persistence.MappedSuperclass;
 @MappedSuperclass
 public abstract class BaseItem {
 
-    // Dry -> tabelas feature e news possuem mesmos items
-    // @MappedSuperclass possibilita a extensao
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

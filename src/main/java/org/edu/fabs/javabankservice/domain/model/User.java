@@ -24,14 +24,12 @@ public class User {
 
     private String name;
 
-    // CascadeType.ALL relacionamento forte, qdo um dado é removido atualiza ex: se usuario é deletado a conta é deletada junto
     @OneToOne(cascade = CascadeType.ALL)
     private Account account;
 
     @OneToOne(cascade = CascadeType.ALL)
     private Card card;
 
-    // FetchType.EAGER toda vez q buscar 1 usuario no banco, traz a lista de features
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Feature> features;
 
